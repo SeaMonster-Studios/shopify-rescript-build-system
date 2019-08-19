@@ -6,8 +6,13 @@ Use ReasonReact in a Shopify theme with Motifmate.
 
 ## Directory structure
 
+```
+package.json
+webpack.config.js
+yarn.lock
 ...ReasonML files
 theme/...theme files
+```
 
 ## Project Setup
 
