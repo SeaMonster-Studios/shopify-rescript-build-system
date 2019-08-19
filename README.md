@@ -22,9 +22,16 @@ theme/...theme files
    b. Click the "..." menu icon in the bottom left of the window.
    c. Hover over the "folder" option and click "connect"
    d. Select the `theme` directory of the project, _NOT_ the root of the project
-3. Install node modules from the root directory
+3. Add the following before the closing body tag in `theme.liquid`
+
+```
+<script src="{{ 'react.bundle.js' | asset_url }}" ></script>
+```
+
+4. Be sure to add your `<div>` with the correct id that you're mounting too (determined in `src/Index.re`).
+5. Install node modules from the root directory
    > `yarn`
-4. To build and watch your ReasonML files run:
+6. To build and watch your ReasonML files run:
    > `yarn start`
 
 When you're done with development to get the smallest bundle file run:
