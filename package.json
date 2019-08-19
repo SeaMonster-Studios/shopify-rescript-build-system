@@ -1,0 +1,30 @@
+{
+  "name": "sms-shopify-reason-build-system",
+  "version": "0.1.0",
+  "scripts": {
+    "build:bsb": "bsb -make-world",
+    "start:bsb": "bsb -make-world -w",
+    "clean": "bsb -clean-world",
+    "start:webpack": "webpack -w",
+    "build:webpack": "NODE_ENV=production webpack",
+    "build": "run-s build:bsb build:webpack",
+    "start": "yarn build:bsb && run-p start:bsb start:webpack"
+  },
+  "keywords": [
+    "BuckleScript"
+  ],
+  "author": "Logan Call @ SeaMonster Studios",
+  "license": "MIT",
+  "dependencies": {
+    "npm-run-all": "^4.1.5",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "reason-react": ">=0.7.0"
+  },
+  "devDependencies": {
+    "bs-platform": "^5.1.0",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.8"
+  }
+}
