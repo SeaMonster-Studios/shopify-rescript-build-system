@@ -1,14 +1,15 @@
 {
   "name": "sms-shopify-reason-build-system",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "scripts": {
     "build:bsb": "bsb -make-world",
     "start:bsb": "bsb -make-world -w",
     "clean": "bsb -clean-world",
     "start:webpack": "webpack -w",
     "build:webpack": "NODE_ENV=production webpack",
-    "build": "run-s build:bsb build:webpack",
-    "start": "yarn build:bsb && run-p start:bsb start:webpack"
+    "start:theme:watch": "cd theme && theme watch",
+    "build": "run-s start:theme:watch build:bsb build:webpack",
+    "start": "yarn build:bsb && run-p start:theme:watch start:bsb start:webpack"
   },
   "keywords": [
     "BuckleScript"
