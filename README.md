@@ -57,3 +57,9 @@ When you're done with development to get the smallest bundle file and upload it 
 ## Mounting Points (Not an SPA)
 
 This is not meant to be an SPA. As such it's setup for multiple mount points. In `Index.re` you will find a `mounts` type which you provide the root id of where to mount it as well as the root component/node to mount. So, when you need to setup a new mount point just add it to the `mounts` array.
+
+## Including a .scss file in a .re file
+
+```reason
+[%raw {|require('./Alert.scss')|}];
+```
