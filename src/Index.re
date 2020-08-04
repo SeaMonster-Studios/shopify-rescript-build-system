@@ -1,34 +1,38 @@
-type element;
 [@bs.val] [@bs.return nullable] [@bs.scope "document"]
-external getElementById: string => option(element) = "getElementById";
+external getElementById: string => option(Dom.element) = "getElementById";
+
+type t;
 
 type mount = {
   id: string,
   node: React.element,
 };
 
-module Mount1 = {
+module TestComponent = {
   [@react.component]
-  let make = () =>
-    <h1> {React.string("Mount 1: I come from the land of Reason")} </h1>;
+  let make = () => "React TestComponent"->React.string;
 };
 
-module Mount2 = {
-  [@react.component]
-  let make = () =>
-    <h1> {React.string("Mount 2: I come from the land of Reason")} </h1>;
+let mounts = [|{id: "react-mount-test", node: <TestComponent />}|];
+
+ReactDOMRe._getElementsByClassName;
+
+type classMounts =
+  | AddRemoveSuggestedVendorsButton;
+
+let elementsById = {
+  Array.map(
+    mount =>
+      switch (getElementById(mount.id)) {
+      | None => React.null
+      | Some(el) => ReactDOMRe.createPortal(mount.node, el)
+      },
+    mounts,
+  )
+  ->React.array;
 };
 
-let mounts = [|
-  {id: "react-mount-1", node: <Mount1 />},
-  {id: "react-mount-2", node: <Mount2 />},
-|];
-
-Array.map(
-  mount =>
-    switch (getElementById(mount.id)) {
-    | None => ()
-    | Some(_el) => ReactDOMRe.renderToElementWithId(mount.node, mount.id)
-    },
-  mounts,
+ReactDOMRe.renderToElementWithId(
+  <div> elementsById </div>,
+  "react-mount-main",
 );

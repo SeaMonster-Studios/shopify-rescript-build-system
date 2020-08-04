@@ -19,7 +19,7 @@ theme/
 ## Project Setup
 
 1. Make sure you have [Shopify's themekit](https://shopify.github.io/themekit/) installed globally, `npm i -g themekit`.
-2. Make sure you have [Prepros](https://prepros.io/) installed. You could opt for a different tool to handle to story proxying and livereloading but we (and Shopify) recommend Prepros. We do so b/c it's cross-platform, flexible, and powerful.
+2. Make sure you have [Prepros](https://prepros.io/) version 7 or later installed. 
 3. Put your theme files into the `theme` directory
 4. Get Shopify API Access via a priate app. Instructions can be found under the "Get API Access" setion on [this page](https://shopify.github.io/themekit/). Then copy the password to your private app.
 5. Put your Shopify _store_ and private app _password_ in the `theme/config.yml` file.
@@ -38,10 +38,11 @@ theme/
    3. In step 3: Of you're not using the current pulished theme, instead of using your Shopify store URL in the "Link live preview to your store url", use the URL you got from "Share preview" in the previous step.
    4. Also in step 3: I've found a 5000 "Live Reload Delay" usually suffices for my laptop over WiFi. Of course you may need more or less of a delay depending on your computer and internet connection. Why such a long delay? Bucklescript compiles reason to JS (SUUUUPER FAST). But then webpack copies that file to the `theme/assets` directory, and then themekit processes and uploads that file to Shopify.
    5. I'd also recommending turning of any kind of compilation, uglification, etc. for your react.bundle.js file in Prepros.
-9. Add the following before the closing body tag in `theme.liquid`
+9. Add the following before the closing body tag in `theme.liquid` and then comment out either the `prod` or `dev` script based on if you are currently developing or not. The production script is minified and has source maps so it takes longer to compile and is not ideal for development.
 
 ```
-<script src="{{ 'react.bundle.js' | asset_url }}" ></script>
+<script src="{{ 'index.prod-dist.js' | asset_url }}" ></script>
+<script src="{{ 'index.dev-dist.js' | asset_url }}" ></script>
 ```
 
 10. Be sure to add your `<div>` with the correct id that you're mounting too (determined in `src/Index.re`).
@@ -56,7 +57,7 @@ When you're done with development to get the smallest bundle file and upload it 
 
 ## Mounting Points (Not an SPA)
 
-This is not meant to be an SPA. As such it's setup for multiple mount points. In `Index.re` you will find a `mounts` type which you provide the root id of where to mount it as well as the root component/node to mount. So, when you need to setup a new mount point just add it to the `mounts` array.
+This is not meant to be an SPA. As such it's setup for multiple mount points. In `Index.re` you will find a `mounts` type which you provide the root id of where to mount it as well as the root component/node to mount. So, when you need to setup a new mount point just add it to the `mounts` array. Each mount point will be mounted via a React Portal so that if you have shared context or state across component it will be maintained.
 
 ## Including a .scss file in a .re file
 
