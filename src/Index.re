@@ -13,7 +13,7 @@ module TestComponent = {
   let make = () => "React TestComponent"->React.string;
 };
 
-let mounts = [|{id: "react-mount-test", node: <TestComponent />}|];
+let mounts = [|{id: "react-mount-app", node: <TestComponent />}|];
 
 ReactDOMRe._getElementsByClassName;
 
