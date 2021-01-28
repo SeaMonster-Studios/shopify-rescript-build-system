@@ -15,8 +15,6 @@ module TestComponent = {
 
 let mounts = [{id: "react-mount-app", node: <TestComponent />}]
 
-ReactDOMRe._getElementsByClassName
-
 type classMounts = AddRemoveSuggestedVendorsButton
 
 let elementsById = Array.map(mount =>

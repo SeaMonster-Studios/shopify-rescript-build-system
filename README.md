@@ -1,4 +1,4 @@
-# ReasonReact + Shopify (Linux/macOS/Windows)
+# ReScript + ReasonReact + Shopify
 
 Use ReasonReact in a Shopify theme with Prepros.
 
@@ -10,7 +10,7 @@ package.json
 webpack.config.js
 yarn.lock
 src/
-...ReasonML files
+...ReScript files
 theme/
   -config.yml file
   ...remaining theme files
@@ -63,7 +63,7 @@ theme/
 10. Be sure to add your `<div>` with the correct id that you're mounting too (determined in `src/Index.re`).
 11. Install node modules from the root directory
     > `yarn`
-12. Build and watch your ReasonML files run, and watch your theme files (via themekit) simply run:
+12. Build and watch your ReScript files run, and watch your theme files (via themekit) simply run:
     > `yarn start`
 
 When you're done with development to get the smallest bundle file and upload it to Shopify run:

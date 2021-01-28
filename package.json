@@ -2,12 +2,15 @@
   "name": "sms-shopify-rescript-build-system",
   "version": "2.0.0",
   "scripts": {
-    "build": "bsb -make-world",
-    "dev:bs": "bsb -make-world -w",
+    "build:res": "bsb -make-world",
+    "build:css": "NODE_ENV=production ./node_modules/.bin/postcss ./src/index.css -o ./theme/assets/index-prod.css --verbose",
+    "build": "run-s build:css build:res",
+    "dev:res": "bsb -make-world -w",
+    "dev:css": "./node_modules/.bin/postcss ./src/index.css -o ./theme/assets/index-dev.css -w",
+    "dev": "run-p dev:css dev:res",
     "clean": "bsb -clean-world",
     "pull": "cd theme && theme download",
-    "watch": "cd theme && theme watch",
-    "dev": "yarn build && run-p watch:theme dev:bs"
+    "watch": "cd theme && theme watch"
   },
   "keywords": [
     "BuckleScript"
@@ -15,12 +18,17 @@
   "author": "Logan Call @ SeaMonster Studios",
   "license": "MIT",
   "dependencies": {
+    "autoprefixer": "^10.2.3",
+    "postcss": "^8.2.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "reason-react": "^0.9.1"
+    "reason-react": "^0.9.1",
+    "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
     "bs-platform": "^8.4.2",
-    "npm-run-all": "^4.1.5"
+    "cssnano": "^4.1.10",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^8.3.1"
   }
 }
