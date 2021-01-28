@@ -38,7 +38,26 @@ theme/
    3. In step 3: Of you're not using the current pulished theme, instead of using your Shopify store URL in the "Link live preview to your store url", use the URL you got from "Share preview" in the previous step.
    4. Also in step 3: I've found a 5000 "Live Reload Delay" usually suffices for my laptop over WiFi. Of course you may need more or less of a delay depending on your computer and internet connection. Why such a long delay? Bucklescript compiles reason to JS (SUUUUPER FAST). But then webpack copies that file to the `theme/assets` directory, and then themekit processes and uploads that file to Shopify.
    5. I'd also recommending turning of any kind of compilation, uglification, etc. for your react.bundle.js file in Prepros.
-9. Add the following before the closing body tag in `theme.liquid`.
+9. Add the following immediately after the _opening_ `<body>` tag:
+
+```
+  <script>
+    var loadStylesheet = function (url) {
+      var newSS = document.createElement('link');
+      newSS.rel = 'stylesheet';
+      newSS.href = url;
+      document.getElementsByTagName("head")[0].appendChild(newSS);
+    }
+
+    if (window.location.hostname === "localhost") {
+      loadStylesheet("https://localhost:8848/theme/assets/index-dev.css")
+    } else {
+      loadStylesheet("{{ 'index-prod.css' | asset_url }}")
+    }
+  </script>
+
+```
+10. Add the following before the closing `</body>` tag in `theme.liquid`.
 
 ```
   <div id="react-mount-main"></div>
@@ -49,7 +68,7 @@ theme/
     if (window.location.hostname === "localhost") {
 
       let script = document.createElement('script'); 
-      script.src = "https://localhost:5555/theme/assets/index.dev-dist.js"
+      script.src = "https://localhost:8848/theme/assets/index.dev-dist.js"
       document.head.appendChild(script)
     } else {
       let script = document.createElement('script'); 

@@ -10,7 +10,7 @@
     "dev": "run-p dev:css dev:res",
     "clean": "bsb -clean-world",
     "pull": "cd theme && theme download",
-    "watch": "cd theme && theme watch"
+    "watch": "cd theme && theme watch --allow-live"
   },
   "keywords": [
     "BuckleScript"
