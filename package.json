@@ -1,12 +1,12 @@
 {
-  "name": "sms-shopify-reason-build-system",
-  "version": "1.1.0",
+  "name": "sms-shopify-rescript-build-system",
+  "version": "2.0.0",
   "scripts": {
     "build": "bsb -make-world",
     "dev:bs": "bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "pull:theme": "cd theme && theme download",
-    "watch:theme": "cd theme && theme watch",
+    "pull": "cd theme && theme download",
+    "watch": "cd theme && theme watch",
     "dev": "yarn build && run-p watch:theme dev:bs"
   },
   "keywords": [
@@ -15,12 +15,12 @@
   "author": "Logan Call @ SeaMonster Studios",
   "license": "MIT",
   "dependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "reason-react": "^0.9.1"
   },
   "devDependencies": {
-    "bs-platform": "^8.2.0",
+    "bs-platform": "^8.4.2",
     "npm-run-all": "^4.1.5"
   }
 }
