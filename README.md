@@ -89,6 +89,8 @@ When you're done with development to get the smallest bundle file and upload it 
 
 > `yarn build`
 
+And then right-click on `index.prod.js` in Prepros and click `process file` while the `watch` script is running.
+
 ## Mounting Points (Not an SPA)
 
 This is not meant to be an SPA. As such it's setup for multiple mount points. In `Index.re` you will find a `mounts` type which you provide the root id of where to mount it as well as the root component/node to mount. So, when you need to setup a new mount point just add it to the `mounts` array. Each mount point will be mounted via a React Portal so that if you have shared context or state across component it will be maintained.
