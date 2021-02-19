@@ -1,4 +1,14 @@
 development:
-  store: 
+  store: your-store-name.myshopify.com
+  password: 
+  theme_id: 
+
+staging:
+  store: your-store-name.myshopify.com
+  password: 
+  theme_id: 
+
+production:
+  store: your-store-name.myshopify.com
   password: 
   theme_id: 
