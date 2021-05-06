@@ -1,4 +1,4 @@
-development:
-  store: 
-  password: 
-  theme_id: 
+development: 
+  store: sms-app-shipping-insurance-dev-store.myshopify.com
+  password: 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
+  theme_id: 122184663217

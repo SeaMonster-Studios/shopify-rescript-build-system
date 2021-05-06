@@ -3,14 +3,21 @@
   "version": "2.0.0",
   "scripts": {
     "build:res": "bsb -make-world",
-    "build:css": "NODE_ENV=production ./node_modules/.bin/postcss ./src/index.css -o ./theme/assets/index-prod.css --verbose",
+    "build:css": "NODE_ENV=production ./node_modules/.bin/postcss ./src/index.css -o ./theme/assets/index.css --verbose",
     "build": "run-s build:css build:res",
     "dev:res": "bsb -make-world -w",
-    "dev:css": "./node_modules/.bin/postcss ./src/index.css -o ./theme/assets/index-dev.css -w",
-    "dev": "run-p dev:css dev:res",
+    "dev:css": "NODE_ENV=production ./node_modules/.bin/postcss ./src/index.css -o ./theme/assets/index.css -w",
+    "dev:css:old": "./node_modules/.bin/postcss ./src/index.css -o ./theme/assets/index.css -w",
     "clean": "bsb -clean-world",
-    "pull": "cd theme && theme download",
-    "watch": "cd theme && theme watch --allow-live"
+    "dev": "./local.sh watch development",
+    "dev:pull": "./local.sh pull development",
+    "dev:deploy": "./local.sh deploy development",
+    "stage:watch": "./local.sh watch staging",
+    "stage:pull": "./local.sh pull staging",
+    "stage:deploy": "./local.sh deploy staging",
+    "prod:watch": "./local.sh watch production",
+    "prod:pull": "./local.sh pull production",
+    "prod:deploy": "./local.sh deploy production"
   },
   "keywords": [
     "BuckleScript"
