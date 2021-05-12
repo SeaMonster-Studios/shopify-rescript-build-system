@@ -25,7 +25,7 @@
   "license": "MIT",
   "dependencies": {
     "autoprefixer": "^10.2.3",
-    "postcss": "^8.2.4",
+    "postcss": "^8.2.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "reason-react": "^0.9.1",
