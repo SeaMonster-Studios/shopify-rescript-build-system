@@ -86,7 +86,7 @@ theme/
 9.  Install node modules from the root directory
     > `yarn`
 10. Build and watch your ReScript files run, and watch your theme files (via themekit) simply run:
-    > `yarn start`
+    > `yarn dev`
 
 When you're done with development to get the smallest bundle file and upload it to Shopify run:
 
