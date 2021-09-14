@@ -147,5 +147,5 @@ This assumes you've been working on a feature branch.
 ### Including a .scss file in a .re file
 
 ```reason
-[%raw {|require('./Alert.scss')|}];
+%%raw("require('./Alert.scss')")
 ```
