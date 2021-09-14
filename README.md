@@ -24,7 +24,7 @@ theme/
 
 ### Project Setup
 
-1. In your shopify store, create two duplicates of your production theme. One will be used while actively developing the theme, while the other will be used to snapshot features/fixes that are ready for the client to preview. Identify the duplicates with a name prefix like  `Seamonster Dev ::`  and `SeaMonster Stage ::`.
+1. In your shopify store, create two duplicates of your production theme. One will be used while actively developing the theme, while the other will be used to snapshot features/fixes that are ready for the client to preview. Identify the duplicates with the prefix `SMS DEV ::` for the development theme and `SMS STAGE ::` for the staging theme.
 2. Edit `theme/config.yml`. This contains sections that should correspond to the themes that were previously created. 
    * The `store` follows the pattern `your-store-name.myshopify.com`.
    * The `password` is a private app password that can be created using the [Themekit Access](https://apps.shopify.com/theme-kit-access?shpxid=a8e67f54-3B47-4818-715D-2431CE697661) app.
